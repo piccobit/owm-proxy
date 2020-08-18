@@ -29,7 +29,7 @@ release:
   prerelease: auto
 
 checksum:
-  name_template: checksum.txt
+  name_template: "checksum.txt"
 
 snapshot:
-  name_template: {{ .Tag }}-snapshot
+  name_template: "{{ .Tag }}-snapshot"
