@@ -1,0 +1,35 @@
+before:
+  hooks:
+  - go mod download
+
+builds:
+- goos:
+  - linux
+  - windows
+  - darwin
+  goarch:
+  - amd64
+  env:
+  - CGO_ENABLED=0
+
+dockers:
+- goos: linux
+  goarch: amd64
+  image_templates:
+  - "docker-push.kubernetes.zone/servers/{{ .ProjectName }}:{{ .Tag }}"
+  skip_push: auto
+
+archives:
+- id: owm-proxy-archives
+  format_overrides:
+  - goos: windows
+    format: zip
+
+release:
+  prerelease: auto
+
+checksum:
+  name_template: checksum.txt
+
+snapshot:
+  name_template: {{ .Tag }}-snapshot
