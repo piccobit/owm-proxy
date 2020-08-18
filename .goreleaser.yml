@@ -17,7 +17,7 @@ dockers:
   goarch: amd64
   image_templates:
   - "docker-push.kubernetes.zone/servers/{{ .ProjectName }}:{{ .Tag }}"
-  skip_push: auto
+  skip_push: false
 
 archives:
 - id: owm-proxy-archives
